@@ -24,6 +24,7 @@ export function Navigation() {
       py="4"
       alignItems="center"
       justifyContent="space-between"
+      maxW="1024px"
     >
       <NextLink href="/">
         <Heading>fungi</Heading>
