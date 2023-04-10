@@ -10,3 +10,6 @@ export * from "./TokenSmallCard";
 export * from "./CollectionStatsInfoContainer";
 export * from "./OrderListItemContainer";
 export * from "./EthPrice";
+export * from "./ConnectToMetaMaskButton";
+export * from "./InstallMetaMaskButton";
+export * from "./SpinnerCard";

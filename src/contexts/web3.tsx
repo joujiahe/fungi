@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState, useEffect } from "react";
-import { BrowserProvider, ethers, JsonRpcError, JsonRpcSigner } from "ethers";
+import { BrowserProvider, ethers, JsonRpcSigner } from "ethers";
 import { useToast } from "@chakra-ui/react";
 
 type Web3ContextState = {

@@ -1,4 +1,4 @@
-import { Flex, Box, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
+import { Box, SkeletonText } from "@chakra-ui/react";
 import { CollectionStatsInfo } from "@/components";
 import { useCollectionAndStats } from "@/modules/api/hooks";
 

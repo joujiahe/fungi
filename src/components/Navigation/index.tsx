@@ -1,12 +1,14 @@
 import { useContext } from "react";
-import { Flex, Heading, Button, Text, Show } from "@chakra-ui/react";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { Flex, Heading, Show } from "@chakra-ui/react";
 import { Link } from "@chakra-ui/next-js";
 import { default as NextLink } from "next/link";
 
-import { METAMASK_DOWNLOAD_URL } from "@/common/constants";
 import Web3Context from "@/contexts/web3";
-import { MetaMaskAvatar } from "../MetaMaskAvatar";
+import {
+  MetaMaskAvatar,
+  ConnectToMetaMaskButton,
+  InstallMetaMaskButton,
+} from "@/components";
 
 export function Navigation() {
   const { accounts, isMetaMaskInstalled, isConnected, connectToMetaMask } =
@@ -41,19 +43,9 @@ export function Navigation() {
         {isConnected ? (
           <MetaMaskAvatar address={accounts[0]} />
         ) : isMetaMaskInstalled ? (
-          <Button
-            variant="solid"
-            colorScheme="orange"
-            onClick={connectToMetaMask}
-          >
-            Connect to Metamask
-          </Button>
+          <ConnectToMetaMaskButton />
         ) : (
-          <Link href={METAMASK_DOWNLOAD_URL}>
-            <Text color="orange">
-              Install MetaMask <ExternalLinkIcon />
-            </Text>
-          </Link>
+          <InstallMetaMaskButton />
         )}
       </Show>
     </Flex>

@@ -4,13 +4,17 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
-import { Flex, Box, Center, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+import { Box, SimpleGrid, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import InfiniteScroll from "react-infinite-scroller";
 
 import { getCollection, getCollectionStats } from "@/modules/api";
 import { useTokenList, useCollectionAndStats } from "@/modules/api/hooks";
-import { TokenSmallCard, CollectionStatsInfoContainer } from "@/components";
+import {
+  TokenSmallCard,
+  CollectionStatsInfoContainer,
+  SpinnerCard,
+} from "@/components";
 import Web3Context from "@/contexts/web3";
 
 export default function Collection() {
@@ -49,23 +53,11 @@ export default function Collection() {
                   key={token.tokenId}
                   shallow
                 >
-                  <Flex>
-                    <TokenSmallCard token={token} />
-                  </Flex>
+                  <TokenSmallCard token={token} />
                 </Link>
               ))
             )}
-            {(isLoading || isFetchingNextPage) && (
-              <Center h="400px">
-                <Spinner
-                  thickness="4px"
-                  speed="0.65s"
-                  emptyColor="gray.200"
-                  color="blue.500"
-                  size="xl"
-                />
-              </Center>
-            )}
+            {(isLoading || isFetchingNextPage) && <SpinnerCard />}
           </SimpleGrid>
         </InfiniteScroll>
       ) : (

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Flex, Heading } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { Navigation } from "../Navigation";
 
 export type LayoutProps = {
