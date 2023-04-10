@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders NotFound unchanged 1`] = `
+<div>
+  <div
+    class="css-iddgbs"
+  >
+    <h2
+      class="chakra-heading css-0"
+    >
+      Oops... not found
+    </h2>
+  </div>
+</div>
+`;

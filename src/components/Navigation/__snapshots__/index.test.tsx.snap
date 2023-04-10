@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Navigation unchanged 1`] = `
+<div>
+  <div
+    class="css-1nsvf7n"
+  >
+    <a
+      href="/"
+    >
+      <h2
+        class="chakra-heading css-0"
+      >
+        fungi
+      </h2>
+    </a>
+    <div
+      class="css-1084q30"
+    >
+      <a
+        class="chakra-link css-1isemmb"
+        href="/collections"
+      >
+        Collections
+      </a>
+      <a
+        class="chakra-link css-15fzge"
+        href="/orders"
+      >
+        Orders
+      </a>
+    </div>
+  </div>
+</div>
+`;

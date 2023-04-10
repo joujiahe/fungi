@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders AddressLink unchanged 1`] = `
+<div>
+  <a
+    class="chakra-link css-0"
+    href="https://etherscan.io/address/0xD4bA467caB0cfd9d3055CE556019E892a0618B66"
+    target="_blank"
+  >
+    <p
+      class="chakra-text css-tea02u"
+    >
+      0xD4...B66
+       
+      <svg
+        class="chakra-icon css-onkibi"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-width="2"
+        >
+          <path
+            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+          />
+          <path
+            d="M15 3h6v6"
+          />
+          <path
+            d="M10 14L21 3"
+          />
+        </g>
+      </svg>
+    </p>
+  </a>
+</div>
+`;
