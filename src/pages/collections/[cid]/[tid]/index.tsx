@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import { ParsedUrlQuery } from "querystring";
 import { Text, Center, Spinner } from "@chakra-ui/react";
 import { dehydrate, DehydratedState, QueryClient } from "@tanstack/react-query";
@@ -38,6 +39,11 @@ export default function Token() {
 
   return (
     <>
+      <Head>
+        <title>
+          {token.collection.name} - {token.name}
+        </title>
+      </Head>
       <TokenCard
         token={token}
         owner={owner}

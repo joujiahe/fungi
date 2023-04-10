@@ -22,7 +22,7 @@ export function Navigation() {
       zIndex="1"
       px="8"
       py="4"
-      alignItems="center"
+      alignItems="end"
       justifyContent="space-between"
       maxW="1024px"
     >
@@ -30,7 +30,7 @@ export function Navigation() {
         <Heading>fungi</Heading>
       </NextLink>
       <Flex flexGrow={1}>
-        <Link ml="4" href="/collections" shallow>
+        <Link ml="8" href="/collections" shallow>
           Collections
         </Link>
         <Link ml="4" href="/orders" shallow>

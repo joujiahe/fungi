@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import { LR_API_URL_V1 } from "@/common/constants";
+import { resOfGetOrders } from "./mock";
 
 export const getToken = async (collection: string, tokenId: string) => {
   const res = await axios.get(
@@ -23,9 +24,10 @@ export const getCollectionStats = async (collection: string) => {
   return res.data?.data;
 };
 
-export const getOrders = async (collection: string) => {
-  const res = await axios.get(
-    `${LR_API_URL_V1}/orders?collection=${collection}`
-  );
-  return res.data?.data;
+export const getOrders = async (page: number) => {
+  // const res = await axios.get(
+  //   `${LR_API_URL_V1}/orders?pagination%5Bcursor%5D=${page}`
+  // );
+  // return res.data?.data;
+  return resOfGetOrders;
 };

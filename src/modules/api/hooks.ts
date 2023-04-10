@@ -51,10 +51,10 @@ const _getTokensByPage = async (cid: string, page: number, total: number) => {
   return Promise.all(allRequests);
 };
 
-export const useTokenList = (cid: string, page: number, total: number) => {
+export const useTokenList = (cid: string, total: number) => {
   const { isConnected } = useContext(Web3Context);
   return useInfiniteQuery({
-    queryKey: ["token", "list", page],
+    queryKey: ["token", "list"],
     queryFn: async ({ pageParam = 1 }) => {
       const tokens = await _getTokensByPage(cid, pageParam, total);
       const next = pageParam * 10 < total ? pageParam + 1 : undefined;
@@ -71,5 +71,16 @@ export const useTokenOwner = (cid: string, tid: string) => {
     queryKey: ["token-owner", cid, tid],
     queryFn: () => ethApi.getNFTOwner(cid, tid),
     enabled: isConnected,
+  });
+};
+
+export const useOrderList = () => {
+  return useInfiniteQuery({
+    queryKey: ["order", "list"],
+    queryFn: async ({ pageParam = 0 }) => {
+      const res = await api.getOrders(pageParam);
+      return { next: pageParam + 1, orders: res.data };
+    },
+    getNextPageParam: (lastPage) => lastPage.next,
   });
 };

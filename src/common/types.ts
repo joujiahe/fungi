@@ -26,3 +26,25 @@ export type Token = {
   tokenId: string;
   tokenURI: string;
 };
+
+export type Order = {
+  hash: string;
+  collectionAddress: string;
+  tokenId: string;
+  isOrderAsk: boolean;
+  signer: string;
+  strategy: string;
+  currencyAddress: string;
+  amount: string;
+  price: string;
+  nonce: string;
+  startTime: number;
+  endTime: number;
+  minPercentageToAsk: number;
+  params: string;
+  status: string;
+  signature: string | null;
+  v: number | null;
+  r: string | null;
+  s: string | null;
+};
