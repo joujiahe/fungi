@@ -1,8 +1,15 @@
-import { useRouter } from "next/router";
+import { GetServerSideProps } from "next";
 
 export default function Home() {
-  const router = useRouter();
-
-  router.push("/collections");
   return <></>;
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    redirect: {
+      permanent: false,
+      destination: "/collections",
+    },
+    props: {},
+  };
+};
