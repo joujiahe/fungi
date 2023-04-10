@@ -22,6 +22,7 @@ export function OrderListItem({ token, order }: TokenCardProps) {
     <Link
       href={`/collections/${token.collectionAddress}/${token.tokenId}`}
       shallow
+      style={{ width: "100%" }}
     >
       <Flex flexDirection="column">
         <TokenSmallCard

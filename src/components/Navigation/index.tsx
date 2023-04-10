@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Flex, Heading, Button, Text } from "@chakra-ui/react";
+import { Flex, Heading, Button, Text, Show } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { Link } from "@chakra-ui/next-js";
 import { default as NextLink } from "next/link";
@@ -20,7 +20,7 @@ export function Navigation() {
       position="sticky"
       top="0"
       zIndex="1"
-      px="8"
+      px={["4", null, "8"]}
       py="4"
       alignItems="end"
       justifyContent="space-between"
@@ -29,7 +29,7 @@ export function Navigation() {
       <NextLink href="/">
         <Heading>fungi</Heading>
       </NextLink>
-      <Flex flexGrow={1}>
+      <Flex flexGrow={1} justifyContent={["end", null, "start"]}>
         <Link ml="8" href="/collections" shallow>
           Collections
         </Link>
@@ -37,23 +37,25 @@ export function Navigation() {
           Orders
         </Link>
       </Flex>
-      {isConnected ? (
-        <MetaMaskAvatar address={accounts[0]} />
-      ) : isMetaMaskInstalled ? (
-        <Button
-          variant="solid"
-          colorScheme="orange"
-          onClick={connectToMetaMask}
-        >
-          Connect to Metamask
-        </Button>
-      ) : (
-        <Link href={METAMASK_DOWNLOAD_URL}>
-          <Text color="orange">
-            Install MetaMask <ExternalLinkIcon />
-          </Text>
-        </Link>
-      )}
+      <Show above="md">
+        {isConnected ? (
+          <MetaMaskAvatar address={accounts[0]} />
+        ) : isMetaMaskInstalled ? (
+          <Button
+            variant="solid"
+            colorScheme="orange"
+            onClick={connectToMetaMask}
+          >
+            Connect to Metamask
+          </Button>
+        ) : (
+          <Link href={METAMASK_DOWNLOAD_URL}>
+            <Text color="orange">
+              Install MetaMask <ExternalLinkIcon />
+            </Text>
+          </Link>
+        )}
+      </Show>
     </Flex>
   );
 }

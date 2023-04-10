@@ -27,7 +27,9 @@ export function CollectionInfo({
       />
       <Flex flexDirection="column">
         <Link href={`/collections/${address}`} shallow>
-          <Text as="b">{name}</Text>
+          <Text as="b" noOfLines={1}>
+            {name}
+          </Text>
         </Link>
         {!hideAddress && <AddressLink address={address} />}
       </Flex>

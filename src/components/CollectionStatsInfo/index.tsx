@@ -1,4 +1,4 @@
-import { Flex, Center, Text } from "@chakra-ui/react";
+import { Flex, Center, Text, Show } from "@chakra-ui/react";
 import { CollectionInfo } from "@/components";
 import { Collection, CollectionStats } from "@/common/types";
 
@@ -16,20 +16,22 @@ export function CollectionStatsInfo({
   return (
     <Flex justifyContent="space-between">
       <CollectionInfo collection={collection} hideAddress={hideAddress} />
-      <Flex>
-        <Center h="48px" w="96px" flexDirection="column">
-          <Text as="b" fontSize="xs">
-            Owners
-          </Text>
-          <Text color="gray">{collectionStats.countOwners}</Text>
-        </Center>
-        <Center h="48px" w="96px" flexDirection="column">
-          <Text as="b" fontSize="xs">
-            Items
-          </Text>
-          <Text color="gray">{collectionStats.totalSupply}</Text>
-        </Center>
-      </Flex>
+      <Show above="md">
+        <Flex>
+          <Center h="48px" w="96px" flexDirection="column">
+            <Text as="b" fontSize="xs">
+              Owners
+            </Text>
+            <Text color="gray">{collectionStats.countOwners}</Text>
+          </Center>
+          <Center h="48px" w="96px" flexDirection="column">
+            <Text as="b" fontSize="xs">
+              Items
+            </Text>
+            <Text color="gray">{collectionStats.totalSupply}</Text>
+          </Center>
+        </Flex>
+      </Show>
     </Flex>
   );
 }
