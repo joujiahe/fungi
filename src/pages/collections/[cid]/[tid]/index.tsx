@@ -4,12 +4,13 @@ import Head from "next/head";
 import { ParsedUrlQuery } from "querystring";
 import { Text, Center, Spinner } from "@chakra-ui/react";
 import { dehydrate, DehydratedState, QueryClient } from "@tanstack/react-query";
+import { useRouter } from "next/router";
 
 import { getToken } from "@/modules/api";
 import { useToken, useTokenOwner } from "@/modules/api/hooks";
 import { NotFound, TokenCard } from "@/components";
 import { Web3Context } from "@/contexts/web3";
-import { useRouter } from "next/router";
+import { isSameAddress } from "@/modules/etherscan";
 
 export default function Token() {
   const router = useRouter();
@@ -49,7 +50,7 @@ export default function Token() {
         owner={owner}
         appendFooter={
           isConnected ? (
-            owner === accounts[0] ? (
+            isSameAddress(owner, accounts[0]) ? (
               <Text fontSize="sm" color="blue">
                 Congratulation, this token is owned by you.
               </Text>

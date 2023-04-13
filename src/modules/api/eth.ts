@@ -13,5 +13,5 @@ export const getTokenIdByIndex = async (cid: string, index: number) => {
   const provider = new ethers.BrowserProvider(window.ethereum);
   const nftContract = new ethers.Contract(cid, ABI, provider);
   const token = await nftContract.tokenByIndex(index);
-  return Number(token);
+  return BigInt(token);
 };
